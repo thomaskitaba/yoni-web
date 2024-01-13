@@ -1,18 +1,18 @@
-const express = require("express");
-const router = express.Router();
-const cors = require("cors");
-const nodemailer = require("nodemailer");
+import express, { Router, json } from "express";
+import cors from "cors";
+import { createTransport } from "nodemailer";
+const router = Router();
 
 // server used to send send emails
 const app = express();
 app.use(cors());
-app.use(express.json());
+app.use(json());
 app.use("/", router);
 app.listen(5000, () => console.log("Server Running"));
 console.log(process.env.EMAIL_USER);
 console.log(process.env.EMAIL_PASS);
 
-const contactEmail = nodemailer.createTransport({
+const contactEmail = createTransport({
   service: 'gmail',
   auth: {
     user: "thomas.kitaba@gmail.com",

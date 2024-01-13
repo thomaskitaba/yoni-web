@@ -8,8 +8,8 @@ import { Specials } from './components/Specials';
 // import { Contact } from './components/Contact';
 // import { Projects } from "./components/Projects";
 import { Contact } from "./components/Contact";
-import { Posts } from './components/Posts';
 import { Footer } from "./components/Footer";
+import { Posts } from "./components/Posts";
 
 function App() {
   return (
@@ -19,8 +19,8 @@ function App() {
       <Reviews />
       <Specials />
       <Contact />
-      <Posts />
       <Footer />
+      <Posts />
     </div>
   );
 }

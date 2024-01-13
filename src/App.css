@@ -1,6 +1,7 @@
 /* variable properties */
 :root {
   --bg-primary-verydark:#0F0C07;
+  --bg-primary-verywhite: white;
   --bg-primary-dark: #3D2614;
   --bg-primary-middle: #4f311a;
   --bg-primary-light: #9f5e25;
@@ -45,10 +46,12 @@ html {
 }
 
 body {
+  display: flex;
+  justify-content: center;
   font-weight: 400;
   overflow-x: hidden;
   position: relative;
-  background-color: var(--bg-primary-verydark) !important;
+  background-color: var(--bg-primary-verywhite) !important;
   color: #fff !important;
   font-family: 'Centra', sans-serif !important;
 }
@@ -251,6 +254,15 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
 nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 	border-color: transparent;
 }
+
+.consultancy-dropdown {
+  position: relative;
+  top: -10px;
+  color: white;
+  font-size: 1.25rem;
+  align-items: top;
+}
+
 
 /************ Banner Css ************/
 .banner {

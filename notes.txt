@@ -1,0 +1,4 @@
+1. to access the api  using command line
+curl -H "X-Master-Key: <YOUR_API_KEY>" -X GET https://api.jsonbin.io/v3/b/<bin_id>
+
+curl -H "X-Master-Key: $2a$10$5zsgiZhbJemd7b7DTbnrmeWoUQ8o5xqPZT0zAgd3T4TIyYMKMyqI." -X GET https://api.jsonbin.io/v3/b/659c46a4266cfc3fde745432 --insecure
