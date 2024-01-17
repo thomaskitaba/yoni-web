@@ -2,6 +2,7 @@
 :root {
   --bg-primary-verydark:#0F0C07;
   --bg-primary-verywhite: white;
+  --bg-primary-midwhite: #c8c7c7;
   --bg-primary-dark: #3D2614;
   --bg-primary-middle: #4f311a;
   --bg-primary-light: #9f5e25;
@@ -9,6 +10,36 @@
   --bg-primary-dark-2: #201357;
   --bg-primary-light-transparent: rgba(159, 94, 37, 0.7);
   --bg-primary-dark-transparent: rgba(159, 94, 37, 0.9);
+
+  --clr-txt-veryblack: #000;
+  --clr-txt-midblack: #212020;
+  --clr-txt-verywhite: #fff;
+  --clr-txt-midwhite: ##c8c7c7;
+
+  --clr-bg-white: #ffffff;
+  --clr-bg-lightgray: #f5f5f5;
+  --clr-bg-pastelblue: #add8e6;
+  --clr-bg-pastelgreen: #cfe8c5;
+  --clr-bg-pastelpink: #ffdab9;
+  --clr-bg-lightblue: #87CEEB;
+  --clr-bg-lightgray2: #d3d3d3;
+  --clr-bg-beige: #f5f5dc;
+  --clr-bg-systemdefault: /* Use the default background colors */;
+  --clr-bg-brand: /* Replace with your brand color */;
+
+
+
+  --clr-btn-primary: linear-gradient(90deg, #0056b3, #007BFF);      /* Blue for primary actions */
+  --clr-btn-success: linear-gradient(90deg, #218838, #28A745);     /* Green for success or positive actions */
+  --clr-btn-warning: linear-gradient(90deg, #FFD42A, #FFC107);     /* Yellow for warnings or alerts */
+  --clr-btn-danger: linear-gradient(90deg, #C82333, #DC3545);      /* Red for critical actions or errors */
+  --clr-btn-default: #F8F9FA;                                     /* Default background color for buttons */
+  --clr-btn-info: linear-gradient(90deg, #138496, #17A2B8);        /* Blue for informational actions */
+  --clr-btn-secondary: linear-gradient(90deg, #5A6268, #6C757D);   /* Secondary or muted button color */
+  --clr-btn-light: #F8F9FA;                                        /* Light background color for buttons */
+  --clr-btn-dark: linear-gradient(90deg, #23272b, #343A40);        /* Dark background color for buttons */
+
+
 
   --txt-primary-clr:  #d5823a;
 }
@@ -46,13 +77,14 @@ html {
 }
 
 body {
-  display: flex;
-  justify-content: center;
+
   font-weight: 400;
   overflow-x: hidden;
   position: relative;
-  background-color: var(--bg-primary-verywhite) !important;
-  color: #fff !important;
+  background-color: var(--bg-primary-midwhite) !important;
+  /* color: #fff !important; */
+  color: var(--clr-txt-veryblack) !important;
+
   font-family: 'Centra', sans-serif !important;
 }
 
@@ -112,14 +144,15 @@ nav.navbar {
 }
 nav.navbar.scrolled {
   padding: 0px 0;
-  background-color: #121212;
+  background-color: var(--bg-primary-midwhite);
 }
 nav.navbar a.navbar-brand {
     width: 9%;
 }
 nav.navbar .navbar-nav .nav-link.navbar-link {
   font-weight: 400;
-  color: #fff !important;
+  /* color: #fff !important; */
+  color: var(--clr-txt-veryblack) !important;
   letter-spacing: 0.8px;
   padding: 0 25px;
   font-size: 18px;
@@ -172,7 +205,7 @@ span.navbar-text {
 }
 .navbar-text button {
   font-weight: 700;
-  color: #fff;
+  color: var(--clr-txt-veryblack);
   border: 1px solid #fff;
   padding: 18px 34px;
   font-size: 18px;
@@ -180,6 +213,7 @@ span.navbar-text {
 	position: relative;
 	background-color: transparent;
 	transition: 0.3s ease-in-out;
+
 }
 .navbar-text button span {
   z-index: 1;
@@ -219,24 +253,25 @@ nav.navbar .navbar-toggler-icon {
   height: 17px;
   background-image: none;
   position: relative;
-  border-bottom: 2px solid #fff;
+  border-bottom: 2px solid var(--clr-txt-veryblack);
   transition: all 300ms linear;
   top: -2px;
 }
 nav.navbar .navbar-toggler-icon:focus {
-	border-bottom: 2px solid #fff;
+	border-bottom: 2px solid var(--clr-txt-veryblack);
 }
 nav.navbar .navbar-toggler-icon:after,
 nav.navbar .navbar-toggler-icon:before {
 	width: 24px;
 	position: absolute;
 	height: 2px;
-	background-color: #fff;
+	background-color: var(--clr-txt-veryblack);
 	top: 0;
 	left: 0;
 	content: '';
 	z-index: 2;
 	transition: all 300ms linear;
+
 }
 nav.navbar .navbar-toggler-icon:after {
 	top: 8px;
@@ -258,9 +293,17 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .consultancy-dropdown {
   position: relative;
   top: -10px;
-  color: white;
+  color: red;
   font-size: 1.25rem;
   align-items: top;
+}
+@media (max-width: 767px) {
+  .consultancy-dropdown {
+    left: 20px;
+  }
+  .navbar-nav *{
+    margin: 5px;
+  }
 }
 
 
@@ -285,6 +328,14 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-bottom: 16px;
   display: inline-block;
 }
+.banner .container {
+  /* background-image: url(./assets/img/pizza-saturday.jpg); */
+  background-color: white;
+  border-radius: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+}
 .banner h1 {
   font-size: 65px;
   font-weight: 700;
@@ -300,6 +351,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   line-height: 1.5em;
   width: 96%;
 }
+.banner .moto {
+  color: var(--clr-txt-verydark);
+}
+
 .banner button {
   color: #fff;
   font-weight: 700;
@@ -342,7 +397,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .txt-rotate > .wrap {
   border-right: 0.08em solid #777;
 }
-
+.moto {
+  font-size: 1.5rem;
+  color: white;
+}
 /************ reviews Css ************/
 .review {
   padding: 0 0 50px 0;
@@ -816,7 +874,55 @@ padding: 20px;
   width: 100%;
   box-shadow: 1px 1px 3px 2px var(--bg-primary-light),  -1px -1px 3px 2px var(--bg-primary-light);
 }
+/************ Posts ************/
+.accordion-container {
+  background-color: var(--clr-bg-lightgray);
+  margin: 10px;
+  padding: 20px;
+}
+.post-container {
+  background-color: var(--clr-bg-lightgray2);
+}
+.post-header {
+  display: flex;
+  gap: 20px;
+}
+.post-content {
+  background-color: var(--clr-bg-lightgray2);
+  min-height: 40px;
+  padding: 30px;
+  font-size: 1.25rem;
+}
+.comment-footer {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+}
+.comment-body {
+  padding: 10px;
+  background-color: var(--clr-bg-lightblue);
+  min-height: 40px;
+}
+.comment-container {
+  background-color: var(--clr-bg-pastelblue);
+}
+.comment-button{
+  margin: 5px;
+  background-color: var(--clr-bg-lightblue);
+  border-radius: 1px;
+  width: max-content;
+  padding: 5px;
+  box-shadow: 1px 1px 3px 1px var(--bg-primary-verydark);
+  transition: all 1s;
+}
+.comment-button:hover {
+  background-color: var(--clr-bg-pastelblue);
+}
+.comment-textarea {
 
+  min-height: 40px;
+  width: 100%;
+}
 /************ Footer Css ************/
 .footer {
   padding: 0 0 50px 0;

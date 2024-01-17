@@ -10,6 +10,7 @@ import { Specials } from './components/Specials';
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { Posts } from "./components/Posts";
+import { PostAccordion } from "./components/PostAccordion";
 
 function App() {
   return (
@@ -18,9 +19,10 @@ function App() {
       <Banner />
       <Reviews />
       <Specials />
+      <Posts />
       <Contact />
       <Footer />
-      <Posts />
+    
     </div>
   );
 }

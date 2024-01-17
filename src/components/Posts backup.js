@@ -1,6 +1,6 @@
 // src/components/JSONBinComponent.js
 import React, { useState, useEffect } from 'react';
-import { Accordion, Card, Container } from 'react-bootstrap';
+import { Accordion, Card } from 'react-bootstrap';
 // import Card from 'react-bootstrap/Card';
 // import Button from 'react-bootstrap/Button'
 import axios from 'axios';
@@ -22,6 +22,7 @@ export const Posts = () => {
       return null;
     }
   };
+
 
   const sampleData = {
     "record": {
@@ -110,9 +111,8 @@ export const Posts = () => {
   }, [binId, fetchData, secretKey]);
 
   // setData(sampleData);
-
   return (
-    <Container>
+    <>
     <div>
       <h2>JSONBin.io Data:</h2>
       {data ? (
@@ -124,43 +124,24 @@ export const Posts = () => {
     </div>
     { data.record.posts.map((post,index) =>
     <div className="accordion-container">
-      <div className="post-container">
-        <div className="post-header">
-        <div className="post-title"> Title: <span class="post-text-header">{post.title}</span></div>
-          <div className="post-id">id: {post.id}  {post.author} </div>
-
-        </div>
-        <div className="post-content"> {post.content} </div>
-      </div>
-
+      <div className="post-content">id: {post.id}  {post.author} </div>
+      <div className="title"> Title: <h2>{post.title}</h2></div>
+      <div className="content"> {post.content} </div>
+      <form>
         <div className="comment-container">
-          {post.comments.map((c, index) =>
-            <div className="comment-box">
-              <div className="comment-body">
-                <div>{JSON.stringify(c.text)} </div>
-              </div>
-              <div className="comment-footer">
-                <div>comment-id: {c.id}</div>
-                <div>commenter: {JSON.stringify(c.user)} </div>
-                <div>Likes: {JSON.stringify(c.likes)}</div>
-              </div>
-            </div>
-          )}
-          </div>
-          <form>
-            <div className="comment-button-container"> <button type="submit" className="comment-button">Comment</button>
-            <inputbox type="text" name="commenter" ></inputbox>
-            </div>
-            <div className="comment-textarea">
-              <textarea name="new-comment"></textarea>
-            </div>
-            <div class="post-icons"> </div>
-          </form>
+        <div className="comment-box">{post.comments.map((c, index) =>
+
+          <div>{JSON.stringify(c.text)}</div>)} </div>
+
+          <div className="comment-button"> <button type="submit">comment</button> </div>
+        </div>
+        <div class="post-icons"> </div>
+      </form>
       <hr></hr>
     </div>
     )
   }
-  </Container>
+  </>
     );
   };
 
@@ -179,7 +160,7 @@ export const Posts = () => {
   //     </form>
   //   </div>
 
-      /* <Accordion activeKey={activeKey} onSelect={(eventKey) => setActiveKey(eventKey)}>
+      {/* <Accordion activeKey={activeKey} onSelect={(eventKey) => setActiveKey(eventKey)}>
         {data.record.posts.map((post) => (
           <Card key={post.id}>
             <Accordion.Toggle as={Card.Header} eventKey={post.id.toString()}>
@@ -202,4 +183,4 @@ export const Posts = () => {
       </Accordion>
     </>
   );
-}; */
+}; */}

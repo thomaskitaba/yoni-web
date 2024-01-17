@@ -7,15 +7,24 @@ export const Banner = () => {
       <section className="banner" id="home">
         <Container>
           <Row className="align-items-center">
+
             <Col XS={12} md={6} xl={7}>
-              <span className="tagline">Welcome to our Restorant</span>
-              <h1>{`excellent food, `}<span className="wrap"> The best restorant in Town  </span></h1>
-              <p>visit us</p>
-              <button onClick={() => console.log('connect')}>Let's Connect<ArrowRightCircle /></button>
+              <span className="tagline">Education Reimagined</span>
+              <h1><span className="wrap">
+                <ul className='moto'>
+                  <h1>We ....</h1>
+                  <li>Empower Educators and Transform Schools</li>
+                  <li>Build Bridges to Educational Equity</li>
+                  <li>Unlock Every learners Potential</li>
+                  <li>Education Reimagined</li>
+                </ul>
+              </span></h1>
+              <button href="#footer" onClick={() => console.log('connect')}>Let's Connect<ArrowRightCircle /></button>
             </Col>
             <Col>
               <img src={headerImg} alt="Header Img" />
-            </Col>
+          </Col>
+
           </Row>
         </Container>
       </section>
