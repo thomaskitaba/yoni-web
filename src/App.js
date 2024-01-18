@@ -10,19 +10,16 @@ import { Specials } from './components/Specials';
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { Posts } from "./components/Posts";
-import { PostAccordion } from "./components/PostAccordion";
+import { Postsaccordion } from "./components/Postsaccordion";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
       <Banner />
-      <Reviews />
-      <Specials />
       <Posts />
       <Contact />
-      <Footer />
-    
+
     </div>
   );
 }
