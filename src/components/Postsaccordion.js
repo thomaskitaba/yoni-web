@@ -26,30 +26,35 @@ export const Postsaccordion = (props) => {
     // task to be done when comment form changes
 
     const onFormUpdate = (id, newComment) => {
-      const commentSize = data.record.posts[PostId].comments.length;
-      setPostId = id;
-      setComment({
-        "id": commentSize + 1,
-        "text": newComment,
-        "user": "commenter" + (commentSize + 1),
-        "likes": 0,
-        "replies": [
-          {
-            "id": '',
-            "text": "",
-            "user": ""
-          }
-        ]
-      });
-      // data.record.posts[PostId].comments.push(Comment);
+      const postToUpdate = data.record.posts.find((post) => post.id === id);
+
+      if (postToUpdate && postToUpdate.comments) {
+        const commentSize = postToUpdate.comments.length;
+
+        setPostId(id);
+        setComment({
+          id: commentSize + 1,
+          text: newComment,
+          user: `commenter${commentSize + 1}`,
+          likes: 0,
+          replies: [
+            {
+              id: '',
+              text: '',
+              user: '',
+            },
+          ],
+        });
+      }
     };
+
 
     const handleComment = async(newComment) => {
     // const data = await fetchData();
 
       try {
         // await axios.put()
-        data.record.posts[PostId].comments.push(Comment);
+
       }
       catch (error) {
         console.error('Error updating post with comment', error);
