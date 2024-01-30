@@ -1,13 +1,60 @@
 // src/components/JSONBinComponent.js
 import React, { useState, useEffect } from 'react';
 import { Accordion, Card, Container } from 'react-bootstrap';
-// import Card from 'react-bootstrap/Card';
-// import Button from 'react-bootstrap/Button'
+import propTypes from 'prop-types';
+import axios from 'axios';
 
 
 export const Postsaccordion = (props) => {
 
-  const {data} = props;
+    const formInitialsDetail = {
+      "id": '',
+      "text": '',
+      "user": '',
+      "likes": '',
+      "replies": [
+        {
+        "id": '',
+        "text": '',
+        "user": ''
+        }
+      ]
+    }
+    const {data} = props;
+    const [Comment, setComment] = useState(formInitialsDetail);
+    const [PostId, setPostId] = useState('');
+    // task to be done when comment form changes
+
+    const onFormUpdate = (id, newComment) => {
+      const commentSize = data.record.posts[PostId].comments.length;
+      setPostId = id;
+      setComment({
+        "id": commentSize + 1,
+        "text": newComment,
+        "user": "commenter" + (commentSize + 1),
+        "likes": 0,
+        "replies": [
+          {
+            "id": '',
+            "text": "",
+            "user": ""
+          }
+        ]
+      });
+      // data.record.posts[PostId].comments.push(Comment);
+    };
+
+    const handleComment = async(newComment) => {
+    // const data = await fetchData();
+
+      try {
+        // await axios.put()
+        data.record.posts[PostId].comments.push(Comment);
+      }
+      catch (error) {
+        console.error('Error updating post with comment', error);
+      }
+    }
   // const data = {
   //   "record": {
   //     "posts": [
@@ -86,15 +133,7 @@ export const Postsaccordion = (props) => {
 
   return (
     <React.Fragment>
-    <div>
-      <h2>Posts Accordion:</h2>
-      {data ? (
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      ) : (
-        <p>Error fetching data or no data available.</p>
-      )}
 
-    </div>
     { data.record.posts.map((post,index) =>
     <div className="accordion-container">
       <div className="post-container">
@@ -120,16 +159,17 @@ export const Postsaccordion = (props) => {
             </div>
           )}
           </div>
-          <form>
+          <form onSubmit={handleComment}>
             <div className="comment-button-container"> <button type="submit" className="comment-button">Comment</button>
             <inputbox type="text" name="commenter" ></inputbox>
             </div>
             <div className="comment-textarea">
-              <textarea name="new-comment"></textarea>
+            <textarea placeholder="Add your comment here" name="comment" value={Comment.text} onChange={ (e) => onFormUpdate(post.id , e.target.value)} />
             </div>
             <div class="post-icons"> </div>
           </form>
       <hr></hr>
+      <h1> Test thomas kitaba </h1>
     </div>
     )
   }

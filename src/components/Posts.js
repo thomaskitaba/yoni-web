@@ -11,9 +11,10 @@ export const Posts = () => {
   const binId = process.env.REACT_APP_BIN_ID;
   const secretKey = process.env.REACT_APP_SECRET_KEY;
   const [activeKey, setActiveKey] = useState('1');
+  const endPoint = "https://api.jsonbin.io/v3/b/";
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://api.jsonbin.io/v3/b/${binId}`, {
+      const response = await axios.get(`${endPoint}${binId}`, {
         headers: {
           'X-Master-Key': secretKey,
         },
@@ -25,6 +26,30 @@ export const Posts = () => {
     }
   };
 
+  // update data with comment
+  // TODO: change post   like: 5   to
+  // likes: [postLikes{postid1, postid2},
+  // commentLikes{cmntid1, cmntid2}]
+  const updateData = async(postId, newComment) => {
+    try {
+      const currentData = await fetchData();
+      const commentSize = currentData.record.posts[postId].comments.length;
+      currentData.record.posts[postId].comments.push({
+        "id": commentSize + 1,
+        "text": newComment,
+        "user": "commenter" + commentSize + 1,
+        "likes": 5,
+        "replies": [{"id": '',
+          "text": "",
+          "user": ""}]
+      })
+
+      await axios.put()
+    }
+    catch (error) {
+      console.error('Error updating post with comment', error);
+    }
+  }
   const sampleData = {
     "record": {
       "posts": [
@@ -105,7 +130,7 @@ export const Posts = () => {
   useEffect(() => {
     const fetchJSONData = async () => {
       const jsonData = await fetchData();
-      setData(sampleData);
+      setData(jsonData);
     };
 
     fetchJSONData();

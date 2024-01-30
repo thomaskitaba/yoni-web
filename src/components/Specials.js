@@ -102,7 +102,7 @@ export const Specials = () => {
                 <Nav.Item key={index}>
                   <div className="special-nav-item">
                     <Nav.Link eventKey={special.order} active={dayIndexOrder === special.order}>
-                    <div className="event-description-2">
+                      <div className="event-description-2">
                         <div>
                           <h4>{special.day}</h4>
                         </div>

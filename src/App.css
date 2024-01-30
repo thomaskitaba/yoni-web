@@ -330,11 +330,23 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 .banner .container {
   /* background-image: url(./assets/img/pizza-saturday.jpg); */
-  background-color: white;
+  background-color: var(--clr-txt-);
   border-radius: 20px;
   background-repeat: no-repeat;
   background-position: center;
   width: 100%;
+}
+.banner-moto {
+  margin: 20px;
+  display: flex;
+  background-color: var(--clr-bg-pastelpink);
+
+  justify-content: center;
+  font-size: 5rem;
+
+}
+.banner .moto {
+  color: var(--clr-txt-veryblack);
 }
 .banner h1 {
   font-size: 65px;
@@ -351,8 +363,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   line-height: 1.5em;
   width: 96%;
 }
-.banner .moto {
+.moto {
   color: var(--clr-txt-verydark);
+  font-size: 5rem;
 }
 
 .banner button {
@@ -375,7 +388,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 .banner img {
 
-  animation: updown 14s linear infinite;
+  animation: updown 20s linear infinite;
 }
 @keyframes updown {
     0% {
